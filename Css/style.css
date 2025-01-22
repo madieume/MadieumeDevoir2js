@@ -1,0 +1,22 @@
+/* Style pour le sidebar réduit */
+#sidebar.reduced {
+    width: 100px; /* Sidebar réduit */
+    transition: width 0.3s ease;
+}
+
+/* Masquer le texte dans l'état réduit */
+#sidebar.reduced .side {
+    display: none;
+}
+
+/* Afficher le texte au survol d'un lien dans l'état réduit */
+#sidebar.reduced a:hover .side {
+    display: inline-block;
+    position: absolute;
+    left: 90px; /* Ajustez selon votre design */
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
