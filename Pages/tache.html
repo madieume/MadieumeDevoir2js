@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des taches</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <nav class="bg-violet-800 flex justify-between items-center">
-    <div class="flex items-center  p-4 text-white ml-auto">
+  <nav class="bg-gray-900 flex justify-between items-center">
+    <div class="flex items-center p-4 text-white ml-auto">
         <span id="username" class="text-lg font-medium mr-4">
-            Nom d'utilisateur
         </span>
-        <button class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+        <button id="logoutButton" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
             Déconnexion
         </button>
     </div>
 </nav>
+<label class="inline-flex flex justify-end items-center w-full f mb-5 cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" id="darkModeToggle">
+  <div class="relative w-9 h-5 mt-4 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-500 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-white after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-white peer-checked:bg-blue-500"></div>
+</label>
+
     <div class="p-4 sm:ml-64">
         <h1 class="text-blue-400">Tache / Liste des taches</h1>
         <h1 class="text-xl font-bold mb-6">Liste des taches</h1>
         <div class="flex items-center space-x-2 w-full max-w-md">
             <input type="text" id="nom-search" placeholder="Search "
                 class="w-full px-4 py-2 mb-7 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
-            <button id="search-button"
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-7">
-                OK
-            </button>
+                <select id="select-all" class="px-4 py-2 mb-7 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="all"> All</option>
+                    <option value="option1">tache 1</option>
+                    <option value="option2">tache 2</option>
+                    <option value="option3">tache 3</option>
+                </select>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-12">
             <table class="min-w-full table-auto border-collapse">
+                <div class="mx-3 d-flex">
+                    <input class="mt-3 ps-2 " type="checkbox" name="" id="doneAll" onclick="doneAll(this)">
+                    <span class="fw-bold mt-2 mx-2"> A Faire pour le  <span id="tacheName">All tache</span> </span>
+                  </div>
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-200 dark:text-gray-400 border-b">
                   <tr>
                     <th class="py-3 px-6 text-left border-r">Check</th>
@@ -45,10 +55,32 @@
                 <tbody id="table-body" class="text-gray-600 text-sm font-light">
                   
                 </tbody>
-
               </table>
             </div>
-
+         
+            <button id="btnAdd" class="bg-blue-500 flex justify-center items-center w-14 h-14 rounded-full hover:bg-blue-600 mt-4">
+              <span class="text-white font-bold text-2xl">+</span>
+          </button>
+          
+          <div id="modalAdd" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+              <div class="bg-white p-6 rounded-lg w-96">
+                  <h2 class="text-xl font-semibold mb-4">Ajouter une Tâche</h2>
+                  
+                  <!-- Formulaire d'ajout de tâche -->
+                  <form id="formAddTask">
+                      <div class="mb-4">
+                          <label for="taskName" class="block text-gray-700">Nom de la tâche</label>
+                          <input type="text" id="taskName" class="border p-2 w-full mt-2 rounded" placeholder="Entrez le nom de la tâche" required>
+                      </div>
+                      <div class="flex justify-end">
+                          <!-- Le bouton doit être de type submit pour soumettre le formulaire -->
+                          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ajouter</button>
+                          <button type="button" id="btnClose" class="bg-gray-500 text-white px-4 py-2 rounded ml-2 hover:bg-gray-600">Annuler</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          
             <script src="/Js/tache.js"></script>
 
           
