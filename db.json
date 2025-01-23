@@ -1,44 +1,31 @@
 {
-    "utilisateurs": [
-      {
-        "id": 1,
-        "name": "Ibrahima Diop",
-        "login": "idiop",
-        "mdp": "mdp123",
-        "image":"user1.png"
-      },
-      {
-        "id": 2,
-        "name": "Aminata Fall",
-        "login": "afall",
-        "mdp": "mdp123",
-        "image":"user2.png"
-      },
-      {
-        "id": 3,
-        "name": "Moussa Sylla",
-        "login": "msylla",
-        "mdp": "mdp123",
-        "image":"user3.png"
-      }
-    ],
-    "taches" : [
-          {
-              "id": 1,
-              "check": 1,
-              "name": "tache 1"
-             
-          },
-          {
-               "id": 2,
-               "check": 2,
-              "name": "tache 2"
-          },
-          {
-               "id": 3,
-               "check": 3,
-              "name": "tache 3"
-          }
-        ]
-  }
-  
+  "utilisateurs": [
+    {
+      "id": 1,
+      "name": "Ibrahima Diop",
+      "login": "idiop",
+      "mdp": "mdp123",
+      "image": "user1.png"
+    },
+    {
+      "id": 2,
+      "name": "Aminata Fall",
+      "login": "afall",
+      "mdp": "mdp123",
+      "image": "user2.png"
+    },
+    {
+      "id": 3,
+      "name": "Moussa Sylla",
+      "login": "msylla",
+      "mdp": "mdp123",
+      "image": "user3.png"
+    }
+  ],
+ "taches": [
+    { "id": 1, "check": 0, "name": "tâche 1" },
+    { "id": 2, "check": 0, "name": "tâche 2" },
+    { "id": 3, "check": 0, "name": "tâche 3" }
+  ]
+ 
+}
